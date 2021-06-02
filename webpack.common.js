@@ -69,18 +69,19 @@ module.exports = {
             },
           },
           "css-loader",
-          "resolve-url-loader",
           {
             loader: "sass-loader", 
             options: {
               implementation: require('sass')
-            }
+            },
+          
           },
           "postcss-loader",
         ],
       },
     ],
   },
+  
   plugins: [
     new MiniCssExtractPlugin({
       // Options similar to the same options in webpackOptions.output
