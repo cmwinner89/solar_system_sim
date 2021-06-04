@@ -234,7 +234,7 @@ canvas.height = 850;
 function isIntersect(point, planet) {
   console.log(Math.sqrt((point.x-planet.x) ** 2 + (point.y - planet.y) ** 2))
   console.log(planet.radius);
-  return Math.sqrt((point.x-planet.x) ** 2 - (point.y - planet.y) ** 2) < planet.radius;
+  return Math.sqrt((point.x-planet.x) ** 2 + (point.y - planet.y) ** 2) < planet.radius;
 }
 
 function isClicked(pointer, planet) {
