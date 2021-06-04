@@ -218,6 +218,11 @@
 
 const canvas = document.getElementById('main-canvas');
 const ctx = canvas.getContext('2d');
+const details = document.getElementById("planet-details");
+const container = document.getElementById("container");
+const planetName = document.getElementById("planet-name");
+const orbitPeriod = document.getElementById("orbital-period");
+
 // const something = document.getElementsByClassName('planet');
 // console.log(something)
 console.log(canvas);
@@ -232,9 +237,10 @@ canvas.height = 850;
 // });
 
 function isIntersect(point, planet) {
-  console.log(Math.sqrt((point.x-planet.x) ** 2 + (point.y - planet.y) ** 2))
-  console.log(planet.radius);
-  return Math.sqrt((point.x-planet.x) ** 2 + (point.y - planet.y) ** 2) < planet.radius;
+  // console.log(Math.sqrt((point.x-planet.x) ** 2 + (point.y - planet.y) ** 2))
+  // console.log(planet.radius);
+  // return Math.sqrt((point.x-planet.x) + (point.y - planet.y)) < planet.radius;
+  return Math.sqrt((point.x - planet.x) ** 2 + (point.y - planet.y) ** 2) < planet.radius;
 }
 
 function isClicked(pointer, planet) {
@@ -243,8 +249,8 @@ function isClicked(pointer, planet) {
 
 
 class Planet {
-  constructor(planetId, x, y, radius, color, velocity, orbitRadius) {
-    this.planetId = planetId
+  constructor(planetName, x, y, radius, color, velocity, orbitRadius) {
+    this.planetName = planetName
     this.x = x;
     this.y = y;
     this.radius = radius;
@@ -277,14 +283,14 @@ class Planet {
   }
 
   update() {
-    
+
     this.draw();
-    
+
     this.radian += this.velocity;
-    
+
     this.x = this.startPos.x + Math.cos(this.radian) * this.orbitRadius;
     this.y = this.startPos.y + Math.sin(this.radian) * this.orbitRadius;
-    
+
     // console.log(this.x);
     // console.log(this.y);
     // this.x += this.velocity;
@@ -292,8 +298,8 @@ class Planet {
   }
 }
 
-const getPlanets = (planetId, radius, velocity, orbitRadius, color) => 
-  new Planet(planetId, canvas.width /2, canvas.height /2, radius, color, velocity / 1000, orbitRadius);
+const getPlanets = (planetName, radius, velocity, orbitRadius, color) =>
+  new Planet(planetName, canvas.width / 2, canvas.height / 2, radius, color, velocity / 1000, orbitRadius);
 
 
 let planets;
@@ -303,22 +309,24 @@ function init() {
   // planets.push(new Planet(canvas.width / 2, canvas.height / 2, 25, 'yellow', 0, 0));
   // planets.push(new Planet(canvas.width / 2, canvas.height / 2, 10, 'red', 0.005, 65));
   // planets.push(new Planet(canvas.width / 2, canvas.height / 2, 15, 'red', 0.005, 65));
-  planets.push(getPlanets(0, 15, 0, 0, 'yellow'));
-  planets.push(getPlanets(1, 5, 8, 45, "red"));
-  planets.push(getPlanets(2, 10, 5, 75, "orange"));
-  planets.push(getPlanets(3, 15, 4, 110, "blue"));
-  planets.push(getPlanets(4, 20, 3.5, 155, "red"));
-  planets.push(getPlanets(5, 25, 3, 205, "orange"));
-  planets.push(getPlanets(6, 20, 2.25, 255, "yellow"));
-  planets.push(getPlanets(7, 15, 2, 305, "blue"));
-  planets.push(getPlanets(8,25, 1.5, 355, "purple"));
-  planets.push(getPlanets(9, 7, 1, 405, "gray"));
+  planets.push(getPlanets("Sun", 15, 0, 0, 'yellow'));
+  planets.push(getPlanets("Mercury", 5, 8, 45, "red"));
+  planets.push(getPlanets("Venus", 10, 5, 75, "orange"));
+  planets.push(getPlanets("Earth", 15, 4, 110, "blue"));
+  planets.push(getPlanets("Mars", 20, 3.5, 155, "red"));
+  planets.push(getPlanets("Jupiter", 25, 3, 205, "orange"));
+  planets.push(getPlanets("Saturn", 20, 2.25, 255, "yellow"));
+  planets.push(getPlanets("Uranus", 15, 2, 305, "blue"));
+  planets.push(getPlanets("Neptune", 25, 1.5, 355, "purple"));
+  planets.push(getPlanets("pluto", 7, 1, 405, "gray"));
 
   // let planet1 = planets.filter(planet => {
   //   return planet.planetId === 1;
   // })
-  
-  // for (let i = 0; i < 3; i++) {
+
+  // for (let i = 0; i < planets.length; i++) {
+
+  //   planets[i].draw();
   // }
 
 }
@@ -340,33 +348,70 @@ function animate() {
 init();
 animate();
 
+
 canvas.addEventListener('click', (e) => {
   const mousePos = {
-    // x: e.clientX,
-    // y: e.clientY 
-    x: e.clientX - canvas.offsetLeft,
-    y: e.clientY - canvas.offsetTop 
+    x: e.offsetX,
+    y: e.offsetY
+    // x: e.clientX - canvas.offsetLeft,
+    // y: e.clientY - canvas.offsetTop 
   };
 
-  console.log("mouse x", mousePos.x);
-  console.log("mouse y", mousePos.y);
- 
+  // console.log("mouse x", mousePos.x);
+  // console.log("mouse y", mousePos.y);
 
-  planets.forEach( planet => {
-    console.log("planet x", planet.x);
-    console.log("planet y", planet.y);
+
+  planets.forEach(planet => {
+    // console.log("planet x", planet.x);
+    // console.log("planet y", planet.y);
     console.log("isIntersect", isIntersect(mousePos, planet));
-    if(isIntersect(mousePos, planet)) {
-     
-      console.log("PLANET CLICK", planet.planetId);
+    if (isIntersect(mousePos, planet)) {
+
+      console.log("PLANET CLICK", planet.planetName);
+      console.log("out of if slide", details.getAttribute("slide"))
+      if (details.getAttribute("slide") === "in" || details.getAttribute("slide") === "out") {
+        return;
+      }
+      // if (details.getAttribute("slide") === "in") {
+      //   console.log("above onanmation", details.getAttribute("slide"))
+      //   details.onanimationend = () => {
+      //     details.setAttribute("slide", "next");
+      //     console.log("inside if slide", details.getAttribute("slide"))
+      //     setTimeout(() => {
+      //       details.setAttribute("slide", "out")
+      //       console.log("inside timeout slide", details.getAttribute("slide"))
+      //       details.onanimationend = () => {
+      //         console.log('382', details.onanimationend);
+      //         details.onanimationend = null;
+      //       };
+      //     }, 4500);
+      //   }
+      // } else {
+      details.setAttribute("slide", "in")
+      setTimeout(() => {
+        details.setAttribute("slide", "out")
+       
+      }, 3000);
+
+      // }
+      details.onanimationend = () => {
+          if (details.getAttribute("slide") === "out") {
+            details.setAttribute("slide", "");
+          }
+      }
+
+      planetName.innerHTML = planet.planetName;
+      orbitPeriod.innerHTML = "Oribital period";
+
     }
   });
+
   // planets.forEach( planet => {
   //   console.log("planet x", planet.x);
   //   console.log("planet y", planet.y);
   //   console.log("isClicked", isClicked(mousePos, planet));
   //   if(isClicked(mousePos, planet)) {
-     
+
   //     console.log("PLANET CLICK", planet.planetId);
   //   }
   // });
