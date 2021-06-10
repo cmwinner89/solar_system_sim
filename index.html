@@ -6,26 +6,56 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" href="./dist/main.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
+    <style>
+       
+    </style>
     <title>Solar System Simulation JS</title>
 </head>
 
 <body>
     <!-- <button id="canvas-demo">Canvas Demo</button>
     <button id="DOM-demo">DOM Demo</button> -->
+    <div id='header-container'>
+        <div id="app-title">
+            <h3>Solar System Simulation</h3>
+        </div>
+        <div id="personal-info-cont">
+            <div id="creator">
+                <p>Made by: Collin Winner</p>
+            </div>
+            <div id="link">
+                <i class="fab fa-github"></i>
+            </div>
+        </div>
+    </div>
     <div id="container">
 
         <canvas id="main-canvas" height="500" width="500"></canvas>
     </div>
     <div class="planet-details" id="planet-details">
-       <div id="planet-name">
-
-       </div>
-       <div id="orbital-period">
-
-       </div>
+        <div id=planet-box>
+            <div id="planet-name">
+                <p id='planet-name-title'></p>
+                <p id='planet-name-p'></p>
+            </div>
+        </div>
+        <div id=planet-box>
+            <div id="orbital-period">
+                <p id='orbital-period-title'></p>
+                <p id='orbital-period-p'></p>
+            </div>
+        </div>
+        <div id=planet-box>
+            <div id="planet-temp">
+                <p id='planet-temp-title'></p>
+                <p id='planet-temp-p'></p>
+            </div>
+        </div>
     </div>
     <script src="./dist/main.js"></script>
-    <script src="./src/canvas.js"></script>
+    <script src="./src/scripts/canvas.js"></script>
 </body>
 
 </html>

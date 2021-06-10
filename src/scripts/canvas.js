@@ -222,6 +222,13 @@ const details = document.getElementById("planet-details");
 const container = document.getElementById("container");
 const planetName = document.getElementById("planet-name");
 const orbitPeriod = document.getElementById("orbital-period");
+const planetTemp = document.getElementById("planet-temp");
+const planetP = document.getElementById("planet-name-p");
+const orbitalP = document.getElementById("orbital-period-p");
+const tempP = document.getElementById("planet-temp-p");
+const planetTitle = document.getElementById('planet-name-title');
+const orbitalTitle = document.getElementById('orbital-period-title');
+const tempTitle = document.getElementById("planet-temp-title");
 
 // const something = document.getElementsByClassName('planet');
 // console.log(something)
@@ -249,8 +256,10 @@ function isClicked(pointer, planet) {
 
 
 class Planet {
-  constructor(planetName, x, y, radius, color, velocity, orbitRadius) {
-    this.planetName = planetName
+  constructor(planetName, orbitPeriod, planetTemp, x, y, radius, color, velocity, orbitRadius) {
+    this.planetName = planetName;
+    this.orbitPeriod = orbitPeriod;
+    this.planetTemp = planetTemp;
     this.x = x;
     this.y = y;
     this.radius = radius;
@@ -298,8 +307,8 @@ class Planet {
   }
 }
 
-const getPlanets = (planetName, radius, velocity, orbitRadius, color) =>
-  new Planet(planetName, canvas.width / 2, canvas.height / 2, radius, color, velocity / 1000, orbitRadius);
+const getPlanets = (planetName, orbitPeriod, planetTemp, radius, velocity, orbitRadius, color) =>
+  new Planet(planetName, orbitPeriod, planetTemp, canvas.width / 2, canvas.height / 2, radius, color, velocity / 1000, orbitRadius);
 
 
 let planets;
@@ -309,16 +318,16 @@ function init() {
   // planets.push(new Planet(canvas.width / 2, canvas.height / 2, 25, 'yellow', 0, 0));
   // planets.push(new Planet(canvas.width / 2, canvas.height / 2, 10, 'red', 0.005, 65));
   // planets.push(new Planet(canvas.width / 2, canvas.height / 2, 15, 'red', 0.005, 65));
-  planets.push(getPlanets("Sun", 15, 0, 0, 'yellow'));
-  planets.push(getPlanets("Mercury", 5, 8, 45, "red"));
-  planets.push(getPlanets("Venus", 10, 5, 75, "orange"));
-  planets.push(getPlanets("Earth", 15, 4, 110, "blue"));
-  planets.push(getPlanets("Mars", 20, 3.5, 155, "red"));
-  planets.push(getPlanets("Jupiter", 25, 3, 205, "orange"));
-  planets.push(getPlanets("Saturn", 20, 2.25, 255, "yellow"));
-  planets.push(getPlanets("Uranus", 15, 2, 305, "blue"));
-  planets.push(getPlanets("Neptune", 25, 1.5, 355, "purple"));
-  planets.push(getPlanets("pluto", 7, 1, 405, "gray"));
+  planets.push(getPlanets("Sun is not a planet", "N/A", "HOT", 15, 0, 0, 'yellow'));
+  planets.push(getPlanets("Mercury", "88 days", "167 Celsius", 5, 8, 45, "red"));
+  planets.push(getPlanets("Venus", "224.7 days", "464 Celsius", 10, 5, 75, "orange"));
+  planets.push(getPlanets("Earth", "365 days", "15 Celsius", 15, 4, 110, "blue"));
+  planets.push(getPlanets("Mars", "27.3 days", "-20 Celsius",20, 3.5, 155, "red"));
+  planets.push(getPlanets("Jupiter", "4,331 days", "-110 Celsius",25, 3, 205, "orange"));
+  planets.push(getPlanets("Saturn", "10,747 days", "-140 Celsius", 20, 2.25, 255, "yellow"));
+  planets.push(getPlanets("Uranus", "30,589 days", "-195 Celsius",15, 2, 305, "blue"));
+  planets.push(getPlanets("Neptune", "59,800 days", "-200 Celsius", 25, 1.5, 355, "purple"));
+  planets.push(getPlanets("pluto", "90,560 days", "-225 Celsius", 7, 1, 405, "gray"));
 
   // let planet1 = planets.filter(planet => {
   //   return planet.planetId === 1;
@@ -391,7 +400,7 @@ canvas.addEventListener('click', (e) => {
       setTimeout(() => {
         details.setAttribute("slide", "out")
        
-      }, 3000);
+      }, 5000);
 
       // }
       details.onanimationend = () => {
@@ -400,8 +409,14 @@ canvas.addEventListener('click', (e) => {
           }
       }
 
-      planetName.innerHTML = planet.planetName;
-      orbitPeriod.innerHTML = "Oribital period";
+      console.log("planetP", planetP);
+
+      planetTitle.innerHTML = "planet: ";
+      orbitalTitle.innerHTML = "Orbital Period: "; 
+      tempTitle.innerHTML = "Planet Temperature: ";
+      planetP.innerHTML = planet.planetName;
+      orbitalP.innerHTML = planet.orbitPeriod;
+      tempP.innerHTML = planet.planetTemp;
 
     }
   });
