@@ -411,7 +411,7 @@ canvas.addEventListener('click', (e) => {
 
       console.log("planetP", planetP);
 
-      planetTitle.innerHTML = "planet: ";
+      planetTitle.innerHTML = "Planet: ";
       orbitalTitle.innerHTML = "Orbital Period: "; 
       tempTitle.innerHTML = "Planet Temperature: ";
       planetP.innerHTML = planet.planetName;

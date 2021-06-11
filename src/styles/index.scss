@@ -44,7 +44,7 @@ body {
     position: absolute;
     width: 1350px;
     height: 250px;
-    left: 152px;
+    left: 520px;
     flex-direction: column;
 }
 
@@ -78,13 +78,36 @@ h3 {
 
 #personal-info-cont {
     display: flex;
-    
+    justify-content: space-between;
 }
 
 #creator > p {
     margin-top: 40px;
     font-family: "Ubuntu";
     font-size: 35px;
+}
+
+.fa-github {
+    font-size: 50px;
+    color: tomato;
+}
+
+.fa-linkedin-in {
+    font-size: 50px;
+    color: tomato;
+}
+
+.fa-angellist {
+    font-size: 50px;
+    color: tomato;
+}
+
+#link {
+    display: flex;
+    justify-content: space-around;
+    height: 95px;
+    width: 350px;
+    margin-top: 32px;
 }
 
 .planet-details{
