@@ -16,29 +16,36 @@ body {
     height: 1200px;
 }
 
+@media only screen and (max-width: 1400px){
+    body {
+        justify-content: flex-start;
+        overflow-x: visible;
+    }
+}
+
 #container {
     display: flex;
     align-items: center;
     justify-content: center;
-    border: black solid 2px;
+    border: black solid 4px;
     height: 750px;
     width: 1350px;
     position: relative;
     top: 454px;
     left: 50%;
     transform: translateY(-50%) translateX(-50%);
-    background-color: whitesmoke;
+    background-color: lightgray;
 }
 
 #planet-box {
     display: flex;
     width: 33.333333333%;
-    border-right: black solid 2px;
+    border-right: black solid 4px;
     justify-content: center;
     text-align: center;
     align-items: center;
-    border-left: black solid 2px;
-    border-bottom: black solid 2px;
+    border-left: black solid 4px;
+    border-bottom: black solid 4px;
     
 }
 
@@ -65,7 +72,7 @@ body {
     justify-content: center;
     text-align: center;
     font-size: 50px;
-    border-bottom: gray solid 5px;
+    border-bottom: black solid 5px;
     height: 150px;
     font-family: "Ubuntu";
 }
@@ -123,13 +130,13 @@ h3 {
 }
 
 .planet-details{
-    width: 1355px;
+    width: 1358px;
     height: 150px;
     position: absolute;
     top: calc(50% + 453px);
     left: 50%;
     transform: translateX(calc(-100vw - 100%));
-    background-color: whitesmoke;
+    background-color: lightgray;
     flex-direction: row;
     display: flex;
 }
