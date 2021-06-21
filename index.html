@@ -20,9 +20,21 @@
 <body>
     <!-- <button id="canvas-demo">Canvas Demo</button>
     <button id="DOM-demo">DOM Demo</button> -->
+    <div class="body-blackout"></div>
 
-
+    <div class="popup-modal shadow" data-popup-modal="one">
+        <i class="far fa-times-circle popup-modal__close"></i>
+        <div class="modal-header-container">
+            <h3 class="modal-header">Instructions</h3>
+        </div>
+        <div class="modal-body-content">
+            Welcome User!  Here is my solar system simulation.  
+            You will be able monitor the planets in our solar system as thet orbit around the sun.
+            Click on the planet you desire for more in depth details!
+        </div>
+    </div>
     <div class="main-container">
+
         <div id='header-container'>
             <div id="app-title">
                 <h3>Solar System Simulation</h3>
@@ -30,6 +42,9 @@
             <div id="personal-info-cont">
                 <div id="creator">
                     <p>Made by: Collin Winner</p>
+                </div>
+                <div id="instructions-modal-trigger" class="popup-trigger">
+                    Instructions
                 </div>
                 <div id="link">
                     <a target="_blank" href="https://github.com/cmwinner89">
@@ -73,8 +88,10 @@
         </div>
     </div>
 
+
     <script src="./dist/main.js"></script>
     <script src="./src/scripts/canvas.js"></script>
+    <script src="./src/scripts/modal.js"></script>
 </body>
 
 </html>
