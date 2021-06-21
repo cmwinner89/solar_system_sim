@@ -13,7 +13,7 @@ body {
     flex-direction: column;
   
     width: 1354px;
-    height: 1500px;
+    height: 1200px;
 }
 
 #container {
@@ -123,10 +123,10 @@ h3 {
 }
 
 .planet-details{
-    width: 1354px;
+    width: 1355px;
     height: 150px;
     position: absolute;
-    top: calc(50% + 415px);
+    top: calc(50% + 453px);
     left: 50%;
     transform: translateX(calc(-100vw - 100%));
     background-color: whitesmoke;
@@ -144,6 +144,10 @@ h3 {
 
 .planet-details[slide="next"] {
     animation: slideIn 1.5s ease-in forwards;
+}
+
+.canvas-details-container {
+    position: relative;
 }
 
 @keyframes slideNext {
