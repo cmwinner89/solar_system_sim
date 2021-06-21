@@ -20,57 +20,57 @@
 <body>
     <!-- <button id="canvas-demo">Canvas Demo</button>
     <button id="DOM-demo">DOM Demo</button> -->
-    <div>
 
-    
-    <div id='header-container'>
-        <div id="app-title">
-            <h3>Solar System Simulation</h3>
-        </div>
-        <div id="personal-info-cont">
-            <div id="creator">
-                <p>Made by: Collin Winner</p>
+
+    <div class="main-container">
+        <div id='header-container'>
+            <div id="app-title">
+                <h3>Solar System Simulation</h3>
             </div>
-            <div id="link">
-                <a target="_blank" href="https://github.com/cmwinner89">
-                    <i class="fab fa-github"></i>  
-                </a>
+            <div id="personal-info-cont">
+                <div id="creator">
+                    <p>Made by: Collin Winner</p>
+                </div>
+                <div id="link">
+                    <a target="_blank" href="https://github.com/cmwinner89">
+                        <i class="fab fa-github"></i>
+                    </a>
 
-                <a target="_blank" href="https://www.linkedin.com/in/collin-winner-791203176/">
-                    <i class="fab fa-linkedin-in"></i>
-                </a>
+                    <a target="_blank" href="https://www.linkedin.com/in/collin-winner-791203176/">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
 
-                <a target="_blank" href="https://angel.co/u/collin-winner">
-                    <i class="fab fa-angellist"></i>
-                </a>
+                    <a target="_blank" href="https://angel.co/u/collin-winner">
+                        <i class="fab fa-angellist"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div id="container">
+            <canvas id="main-canvas" height="500" width="500"></canvas>
+        </div>
+        <div class="planet-details" id="planet-details">
+            <div id=planet-box>
+                <div id="planet-name">
+                    <p id='planet-name-title'></p>
+                    <p id='planet-name-p'></p>
+                </div>
+            </div>
+            <div id=planet-box>
+                <div id="orbital-period">
+                    <p id='orbital-period-title'></p>
+                    <p id='orbital-period-p'></p>
+                </div>
+            </div>
+            <div id=planet-box>
+                <div id="planet-temp">
+                    <p id='planet-temp-title'></p>
+                    <p id='planet-temp-p'></p>
+                </div>
             </div>
         </div>
     </div>
-    <div id="container">
 
-        <canvas id="main-canvas" height="500" width="500"></canvas>
-    </div>
-    <div class="planet-details" id="planet-details">
-        <div id=planet-box>
-            <div id="planet-name">
-                <p id='planet-name-title'></p>
-                <p id='planet-name-p'></p>
-            </div>
-        </div>
-        <div id=planet-box>
-            <div id="orbital-period">
-                <p id='orbital-period-title'></p>
-                <p id='orbital-period-p'></p>
-            </div>
-        </div>
-        <div id=planet-box>
-            <div id="planet-temp">
-                <p id='planet-temp-title'></p>
-                <p id='planet-temp-p'></p>
-            </div>
-        </div>
-    </div>
-    
     <script src="./dist/main.js"></script>
     <script src="./src/scripts/canvas.js"></script>
 </body>

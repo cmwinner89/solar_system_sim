@@ -234,9 +234,9 @@ const tempTitle = document.getElementById("planet-temp-title");
 // console.log(something)
 console.log(canvas);
 // canvas.width = window.innerWidth;
-canvas.width = 1050;
+canvas.width = 950;
 // canvas.height = innerHeight;
-canvas.height = 850;
+canvas.height = 750;
 
 // addEventListener('resize', () => {
 //   cavnas.width = innerWidth;
@@ -318,16 +318,16 @@ function init() {
   // planets.push(new Planet(canvas.width / 2, canvas.height / 2, 25, 'yellow', 0, 0));
   // planets.push(new Planet(canvas.width / 2, canvas.height / 2, 10, 'red', 0.005, 65));
   // planets.push(new Planet(canvas.width / 2, canvas.height / 2, 15, 'red', 0.005, 65));
-  planets.push(getPlanets("Sun is not a planet", "N/A", "HOT", 15, 0, 0, 'yellow'));
-  planets.push(getPlanets("Mercury", "88 days", "167 Celsius", 5, 8, 45, "red"));
-  planets.push(getPlanets("Venus", "224.7 days", "464 Celsius", 10, 5, 75, "orange"));
-  planets.push(getPlanets("Earth", "365 days", "15 Celsius", 15, 4, 110, "blue"));
-  planets.push(getPlanets("Mars", "27.3 days", "-20 Celsius",20, 3.5, 155, "red"));
-  planets.push(getPlanets("Jupiter", "4,331 days", "-110 Celsius",25, 3, 205, "orange"));
-  planets.push(getPlanets("Saturn", "10,747 days", "-140 Celsius", 20, 2.25, 255, "yellow"));
-  planets.push(getPlanets("Uranus", "30,589 days", "-195 Celsius",15, 2, 305, "blue"));
-  planets.push(getPlanets("Neptune", "59,800 days", "-200 Celsius", 25, 1.5, 355, "purple"));
-  planets.push(getPlanets("pluto", "90,560 days", "-225 Celsius", 7, 1, 405, "gray"));
+  planets.push(getPlanets("Sun is not a planet", "N/A", "HOT", 12, 0, 0, 'yellow'));
+  planets.push(getPlanets("Mercury", "88 days", "167 Celsius", 5, 8, 35, "red"));
+  planets.push(getPlanets("Venus", "224.7 days", "464 Celsius", 10, 5, 60, "orange"));
+  planets.push(getPlanets("Earth", "365 days", "15 Celsius", 15, 4, 90, "blue"));
+  planets.push(getPlanets("Mars", "27.3 days", "-20 Celsius",18, 3.5, 135, "red"));
+  planets.push(getPlanets("Jupiter", "4,331 days", "-110 Celsius",23, 3, 185, "orange"));
+  planets.push(getPlanets("Saturn", "10,747 days", "-140 Celsius", 18, 2.25, 235, "yellow"));
+  planets.push(getPlanets("Uranus", "30,589 days", "-195 Celsius",13, 2, 285, "blue"));
+  planets.push(getPlanets("Neptune", "59,800 days", "-200 Celsius", 20, 1.5, 335, "purple"));
+  planets.push(getPlanets("pluto", "90,560 days", "-225 Celsius", 7, 1, 375, "gray"));
 
   // let planet1 = planets.filter(planet => {
   //   return planet.planetId === 1;
