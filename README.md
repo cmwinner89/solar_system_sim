@@ -1,3 +1,4 @@
+
 # solar_system_sim
 
 ### Background and Overview
@@ -8,8 +9,14 @@ My Javascript project is a interactive simulation of our solar system.  The simu
 
 ## In solar_system_sim_js users will be able to: 
 
-- Users can see a disaply of planets around the sun that rotate according to distants
+- Users can see a disaply of planets around the sun that rotate according to distant
+
+![Screenshot 2021-07-07 093930](https://user-images.githubusercontent.com/24721324/124769348-665bf600-df07-11eb-82f1-1dd952905413.png)
+
 - Users can click on invdivual planets for in -depth details
+
+![Screenshot 2021-07-07 093841](https://user-images.githubusercontent.com/24721324/124769386-6cea6d80-df07-11eb-83d4-09b469a3d15e.png)
+
 - Users can see a display of the date/ time of current or future orbit
 
 ## In addition, this project will include: 
