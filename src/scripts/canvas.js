@@ -216,6 +216,10 @@
 // export default canvasExample;
 
 
+// console.log(Math.sqrt((point.x-planet.x) ** 2 + (point.y - planet.y) ** 2))
+  // console.log(planet.radius);
+  // return Math.sqrt((point.x-planet.x) + (point.y - planet.y)) < planet.radius;
+
 const canvas = document.getElementById('main-canvas');
 const ctx = canvas.getContext('2d');
 const details = document.getElementById("planet-details");
@@ -244,9 +248,6 @@ canvas.height = 750;
 // });
 
 function isIntersect(point, planet) {
-  // console.log(Math.sqrt((point.x-planet.x) ** 2 + (point.y - planet.y) ** 2))
-  // console.log(planet.radius);
-  // return Math.sqrt((point.x-planet.x) + (point.y - planet.y)) < planet.radius;
   return Math.sqrt((point.x - planet.x) ** 2 + (point.y - planet.y) ** 2) < planet.radius;
 }
 
@@ -292,18 +293,12 @@ class Planet {
   }
 
   update() {
-
     this.draw();
 
     this.radian += this.velocity;
 
     this.x = this.startPos.x + Math.cos(this.radian) * this.orbitRadius;
     this.y = this.startPos.y + Math.sin(this.radian) * this.orbitRadius;
-
-    // console.log(this.x);
-    // console.log(this.y);
-    // this.x += this.velocity;
-    // this.y += this.velocity;
   }
 }
 
@@ -315,9 +310,6 @@ let planets;
 function init() {
   planets = []
 
-  // planets.push(new Planet(canvas.width / 2, canvas.height / 2, 25, 'yellow', 0, 0));
-  // planets.push(new Planet(canvas.width / 2, canvas.height / 2, 10, 'red', 0.005, 65));
-  // planets.push(new Planet(canvas.width / 2, canvas.height / 2, 15, 'red', 0.005, 65));
   planets.push(getPlanets("Sun is not a planet", "N/A", "HOT", 12, 0, 0, 'yellow'));
   planets.push(getPlanets("Mercury", "88 days", "167 Celsius", 5, 8, 35, "red"));
   planets.push(getPlanets("Venus", "224.7 days", "464 Celsius", 10, 5, 60, "orange"));
@@ -328,16 +320,6 @@ function init() {
   planets.push(getPlanets("Uranus", "30,589 days", "-195 Celsius",13, 2, 285, "blue"));
   planets.push(getPlanets("Neptune", "59,800 days", "-200 Celsius", 20, 1.5, 335, "purple"));
   planets.push(getPlanets("pluto", "90,560 days", "-225 Celsius", 7, 1, 375, "gray"));
-
-  // let planet1 = planets.filter(planet => {
-  //   return planet.planetId === 1;
-  // })
-
-  // for (let i = 0; i < planets.length; i++) {
-
-  //   planets[i].draw();
-  // }
-
 }
 
 function animate() {
@@ -351,51 +333,22 @@ function animate() {
   })
 }
 
-
-// console.log(planets);
-
 init();
 animate();
-
 
 canvas.addEventListener('click', (e) => {
   const mousePos = {
     x: e.offsetX,
     y: e.offsetY
-    // x: e.clientX - canvas.offsetLeft,
-    // y: e.clientY - canvas.offsetTop 
   };
 
-  // console.log("mouse x", mousePos.x);
-  // console.log("mouse y", mousePos.y);
-
-
   planets.forEach(planet => {
-    // console.log("planet x", planet.x);
-    // console.log("planet y", planet.y);
-    console.log("isIntersect", isIntersect(mousePos, planet));
     if (isIntersect(mousePos, planet)) {
 
-      console.log("PLANET CLICK", planet.planetName);
-      console.log("out of if slide", details.getAttribute("slide"))
+    
       if (details.getAttribute("slide") === "in" || details.getAttribute("slide") === "out") {
         return;
       }
-      // if (details.getAttribute("slide") === "in") {
-      //   console.log("above onanmation", details.getAttribute("slide"))
-      //   details.onanimationend = () => {
-      //     details.setAttribute("slide", "next");
-      //     console.log("inside if slide", details.getAttribute("slide"))
-      //     setTimeout(() => {
-      //       details.setAttribute("slide", "out")
-      //       console.log("inside timeout slide", details.getAttribute("slide"))
-      //       details.onanimationend = () => {
-      //         console.log('382', details.onanimationend);
-      //         details.onanimationend = null;
-      //       };
-      //     }, 4500);
-      //   }
-      // } else {
       details.setAttribute("slide", "in")
       setTimeout(() => {
         details.setAttribute("slide", "out")
@@ -432,3 +385,35 @@ canvas.addEventListener('click', (e) => {
   // });
 })
 
+
+
+ // console.log("mouse x", mousePos.x);
+  // console.log("mouse y", mousePos.y);
+  // console.log("PLANET CLICK", planet.planetName);
+      // console.log("out of if slide", details.getAttribute("slide"))
+
+        // console.log("planet x", planet.x);
+    // console.log("planet y", planet.y);
+    // console.log("isIntersect", isIntersect(mousePos, planet));
+
+        // x: e.clientX - canvas.offsetLeft,
+    // y: e.clientY - canvas.offsetTop 
+
+        // console.log(this.x);
+    // console.log(this.y);
+    // this.x += this.velocity;
+    // this.y += this.velocity;
+
+      // let planet1 = planets.filter(planet => {
+  //   return planet.planetId === 1;
+  // })
+
+  // for (let i = 0; i < planets.length; i++) {
+
+  //   planets[i].draw();
+  // }
+
+
+    // planets.push(new Planet(canvas.width / 2, canvas.height / 2, 25, 'yellow', 0, 0));
+  // planets.push(new Planet(canvas.width / 2, canvas.height / 2, 10, 'red', 0.005, 65));
+  // planets.push(new Planet(canvas.width / 2, canvas.height / 2, 15, 'red', 0.005, 65));
