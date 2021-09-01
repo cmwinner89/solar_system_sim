@@ -289,7 +289,6 @@ class Planet {
     ctx.fillStyle = this.color;
     ctx.fill();
     ctx.closePath();
-    // ctx.stroke();
   }
 
   update() {
@@ -417,3 +416,5 @@ canvas.addEventListener('click', (e) => {
     // planets.push(new Planet(canvas.width / 2, canvas.height / 2, 25, 'yellow', 0, 0));
   // planets.push(new Planet(canvas.width / 2, canvas.height / 2, 10, 'red', 0.005, 65));
   // planets.push(new Planet(canvas.width / 2, canvas.height / 2, 15, 'red', 0.005, 65));
+
+     // ctx.stroke();
